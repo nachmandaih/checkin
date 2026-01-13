@@ -2,323 +2,68 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b141a" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <title>צ'ק-אין</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>דיווח כניסה / יציאה</title>
   <style>
-    :root{
-      --bg1:#0b141a;
-      --bg2:#0f1b23;
-      --card:#0f2430cc;
-      --stroke:#1f3a46;
-      --text:#e9f1f5;
-      --muted:#9bb2bf;
-      --green:#22c55e;
-      --red:#ef4444;
-      --shadow: 0 18px 45px rgba(0,0,0,.45);
-      --radius: 22px;
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans Hebrew", sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 20% 10%, #1b3a44 0%, transparent 55%),
-        radial-gradient(900px 500px at 90% 20%, #12324a 0%, transparent 55%),
-        linear-gradient(180deg, var(--bg1), var(--bg2));
+      font-family: Arial, sans-serif;
+      background:#0b141a;
+      color:#fff;
       display:flex;
       align-items:center;
       justify-content:center;
-      padding: 24px;
+      height:100vh;
     }
-
-    .shell{
-      width:min(420px, 100%);
-      position:relative;
-    }
-
-    .card{
-      background: var(--card);
-      border: 1px solid var(--stroke);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      overflow:hidden;
-      backdrop-filter: blur(10px);
-    }
-
-    .top{
-      padding: 22px 20px 14px;
-      display:flex;
-      gap:14px;
-      align-items:center;
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-
-    .logo{
-      width:46px;height:46px;
-      border-radius: 14px;
-      display:grid;
-      place-items:center;
-      background: linear-gradient(135deg, rgba(34,197,94,.25), rgba(59,130,246,.18));
-      border: 1px solid rgba(255,255,255,.10);
-      box-shadow: 0 10px 25px rgba(0,0,0,.25);
-      flex:0 0 auto;
-    }
-
-    .logo svg{opacity:.95}
-
-    .titles{
-      line-height:1.1;
-      flex:1;
-      min-width:0;
-    }
-
-    .title{
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: .2px;
-      margin:0 0 6px;
-    }
-
-    .subtitle{
-      margin:0;
-      font-size: 13px;
-      color: var(--muted);
-      display:flex;
-      align-items:center;
-      gap:8px;
-      flex-wrap:wrap;
-    }
-
-    .pill{
-      font-size:12px;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      color: var(--muted);
-    }
-
-    .content{
-      padding: 18px 18px 16px;
-    }
-
-    .hint{
-      background: rgba(0,0,0,.20);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius: 16px;
-      padding: 14px 14px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height:1.45;
-      margin-bottom: 14px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .btn{
-      appearance:none;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
-      border-radius: 18px;
-      padding: 14px 12px;
-      text-align:center;
-      cursor:pointer;
-      transition: transform .08s ease, background .2s ease, border-color .2s ease;
-      user-select:none;
-    }
-    .btn:active{ transform: scale(.98); }
-
-    .btn .big{
-      font-size: 20px;
-      font-weight: 900;
-      margin: 6px 0 2px;
-    }
-    .btn .small{
-      font-size: 12px;
-      color: var(--muted);
-      margin:0;
-    }
-
-    .btn.green{
-      background: rgba(34,197,94,.16);
-      border-color: rgba(34,197,94,.35);
-    }
-    .btn.red{
-      background: rgba(239,68,68,.14);
-      border-color: rgba(239,68,68,.35);
-    }
-
-    .row{
-      display:flex;
-      gap:10px;
-      margin-top: 12px;
-      flex-wrap:wrap;
-    }
-
-    .mini{
-      flex:1 1 auto;
-      border-radius: 14px;
-      padding: 12px 12px;
-      font-size: 13px;
-      background: rgba(0,0,0,.18);
-      border:1px solid rgba(255,255,255,.10);
-      color: var(--text);
-      cursor:pointer;
-      transition: transform .08s ease;
+    .box{
+      width:90%;
+      max-width:360px;
+      background:#111b21;
+      border-radius:18px;
+      padding:24px;
       text-align:center;
     }
-    .mini:active{ transform: scale(.99); }
-
-    .footer{
-      padding: 14px 18px 18px;
-      color: rgba(255,255,255,.55);
-      font-size: 12px;
-      text-align:center;
+    h1{
+      margin-top:0;
+      margin-bottom:20px;
+      font-size:22px;
     }
-
-    .toast{
-      position: fixed;
-      left: 50%;
-      bottom: 18px;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,.72);
-      border: 1px solid rgba(255,255,255,.12);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      opacity: 0;
-      pointer-events:none;
-      transition: opacity .18s ease, transform .18s ease;
-      max-width: min(92vw, 520px);
-      text-align:center;
-      backdrop-filter: blur(10px);
+    a{
+      display:block;
+      margin:16px 0;
+      padding:20px;
+      font-size:22px;
+      color:#fff;
+      text-decoration:none;
+      border-radius:14px;
     }
-    .toast.show{
-      opacity:1;
-      transform: translateX(-50%) translateY(-4px);
-    }
-
-    /* Safe area for notches */
-    .safe {
-      padding-bottom: max(0px, env(safe-area-inset-bottom));
-      padding-top: max(0px, env(safe-area-inset-top));
+    .in{ background:#25D366; }
+    .out{ background:#ef4444; }
+    .note{
+      font-size:14px;
+      color:#ccc;
+      margin-top:16px;
     }
   </style>
 </head>
+<body>
 
-<body class="safe">
-  <main class="shell">
-    <section class="card">
-      <header class="top">
-        <div class="logo" aria-hidden="true">
-          <!-- simple "check" icon -->
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M20 6L9 17l-5-5" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
+  <div class="box">
+    <h1>בחר פעולה</h1>
 
-        <div class="titles">
-          <h1 class="title">צ'ק-אין</h1>
-          <p class="subtitle">
-            לחיצה אחת → וואטסאפ עם טקסט מוכן
-            <span class="pill">בחר קבוצה • שלח</span>
-          </p>
-        </div>
-      </header>
+    <a class="in" href="https://wa.me/?text=כניסה">
+      כניסה
+    </a>
 
-      <div class="content">
-        <div class="hint">
-          💡 הטקסט נפתח מוכן ב-WhatsApp.  
-          אתה רק בוחר את הקבוצה ושולח.
-        </div>
+    <a class="out" href="https://wa.me/?text=יציאה">
+      יציאה
+    </a>
 
-        <div class="grid">
-          <button class="btn green" id="btnIn" type="button">
-            <div class="big">כניסה</div>
-            <p class="small">פותח וואטסאפ עם “כניסה”</p>
-          </button>
+    <div class="note">
+      אחרי הלחיצה:<br>
+      בחר קבוצה → שלח
+    </div>
+  </div>
 
-          <button class="btn red" id="btnOut" type="button">
-            <div class="big">יציאה</div>
-            <p class="small">פותח וואטסאפ עם “יציאה”</p>
-          </button>
-        </div>
-
-        <div class="row">
-          <button class="mini" id="btnCopyIn" type="button">העתק “כניסה”</button>
-          <button class="mini" id="btnCopyOut" type="button">העתק “יציאה”</button>
-        </div>
-      </div>
-
-      <div class="footer">
-        טיפ: שמור כקיצור דרך במסך הבית באנדרואיד לקבלת תחושה של אפליקציה.
-      </div>
-    </section>
-  </main>
-
-  <div class="toast" id="toast">הועתק ✅</div>
-
-  <script>
-    // ====== CONFIG ======
-    // Put a phone number here if you want "send to a person", but for groups WhatsApp blocks direct targeting.
-    // So we use wa.me without a target -> opens WhatsApp compose with the text.
-    // Works on mobile WhatsApp app; on desktop it opens WhatsApp Web.
-    function waLink(text){
-      // Keep it simple and reliable:
-      // wa.me/?text=...
-      return "https://wa.me/?text=" + encodeURIComponent(text);
-    }
-
-    const toast = document.getElementById("toast");
-    let toastTimer = null;
-
-    function showToast(msg){
-      toast.textContent = msg;
-      toast.classList.add("show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(()=> toast.classList.remove("show"), 1400);
-    }
-
-    function openWhatsApp(text){
-      const url = waLink(text);
-      // Open in same tab to behave like an app shortcut
-      window.location.href = url;
-    }
-
-    async function copyText(text){
-      try{
-        await navigator.clipboard.writeText(text);
-        showToast("הועתק ✅");
-      }catch(e){
-        // Fallback
-        const ta = document.createElement("textarea");
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        ta.remove();
-        showToast("הועתק ✅");
-      }
-    }
-
-    document.getElementById("btnIn").addEventListener("click", ()=> openWhatsApp("כניסה"));
-    document.getElementById("btnOut").addEventListener("click", ()=> openWhatsApp("יציאה"));
-
-    document.getElementById("btnCopyIn").addEventListener("click", ()=> copyText("כניסה"));
-    document.getElementById("btnCopyOut").addEventListener("click", ()=> copyText("יציאה"));
-  </script>
 </body>
 </html>
